@@ -1,6 +1,7 @@
 # Análisis estadístico de la señal 
 ## Descipción  
-Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la fuente Physionet.
+Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
+
 
 ### Señal y sus variables estadisticas 
 
@@ -87,7 +88,7 @@ plt.show()
 
 
 ## Ruido Gaussiano 
-ste paso introduce ruido gaussiano en la señal EMG. El ruido gaussiano se utiliza comúnmente para simular interferencias o errores en los datos.
+Este paso introduce ruido gaussiano en la señal EMG. El ruido gaussiano se utiliza comúnmente para simular interferencias o errores en los datos.
 
 
 ``` python
@@ -98,7 +99,8 @@ cv_r1 = 0.01
 
 ruido_g1 = np.random.normal(media_r1, cv_r1, size=len(datos))
 
-``` 
+```
+![r gaussiano](https://github.com/user-attachments/assets/d0134ade-cb80-44c6-9a2a-0d89130f4f65)
 
 np.random.normal: Genera ruido con distribución normal. Se simula un ruido débil (con bajo coeficiente de variación) y fuerte (con mayor coeficiente de variación) y se añade a la señal original.
 
@@ -110,23 +112,36 @@ En este paso, se introduce ruido impulso en la señal. Este tipo de ruido se pre
 
 ``` python
 #Ruido impulso
+
 num_imp1 = int(0.001 * len(datos))  #porcentaje de la señal con impulsos
 pos= np.random.randint(0, len(datos), num_imp1)
 ruido_i1 = np.zeros(len(datos))
 ruido_i1[pos] = np.random.uniform(-5, 5, num_imp1)  
 datos4 = datos + ruido_i1
 
-``` 
+```
+![ruido impulso](https://github.com/user-attachments/assets/f4622df2-88dd-41c5-92b0-4e53e20a3b3e)
 np.random.uniform: Genera valores aleatorios en un intervalo uniforme para simular los picos de impulso.
 
-## Ruido Artefacto 
+## Ruido  Artefacto 
+Se simula una interferencia de 50 Hz la cual suele provenir de la red electrica 
+![ruido por artefacto](https://github.com/user-attachments/assets/f3841831-4ad3-4761-9129-549540f10836)
 
 ## Relación señal ruido (SNR)
 La relación señal-ruido (SNR) es una medida importante para evaluar la calidad de la señal. SNR es la proporción entre la potencia de la señal útil y la potencia del ruido no deseado.
+Esta relación fue calculada para los 3 tipos de ruido anteriormente mencionados.
+``` python 
+snr1 =(10 * np.log10(np.var(datos) / np.var(ruido_g1)))
 
+snr2 =(10 * np.log10(np.var(datos) / np.var(ruido_g2)))
+
+print("SNR1:",snr1)
+print("SNR2:",snr2)
+```
 ### Librerias
 * wfdb
 * numpy
 * matplotlib
 * scipy
+
 
