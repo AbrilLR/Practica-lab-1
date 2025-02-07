@@ -3,7 +3,6 @@
 Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
 
 
-
 ### Señal y sus variables estadisticas 
 
 Se obtuvo una señal fisiológica de la base de datos PhysioNet, esta señal corresponde al  estudio del músculo tibial anterior en tres grupos de pacientes: personas sanas, personas con neuropatías y personas con miopatías.
@@ -124,7 +123,7 @@ np.random.normal: Genera ruido con distribución normal. Se simula un ruido déb
 
 ## Ruido Impulso 
 En este paso, se introduce ruido impulso en la señal. Este tipo de ruido se presenta como picos o saltos repentinos en los valores de la señal.
- Estos picos pueden tener amplitudes mucho mayores o menores que el resto de los datos, causando distorsiones abruptas o artefactos en la señal.  
+ Estos picos pueden tener amplitudes mucho mayores o menores que el resto de los datos, causando distorsiones abruptas en la señal.  
 
 ``` python
 #Ruido impulso
