@@ -3,9 +3,12 @@
 ## Descipción  
 Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
 
+
+
 ### Señal y sus variables estadisticas 
 
-Se extrajo una señal fisiologica en la base de datos physionet, es necesario contar la libreria WFDB debido a que esta permite extraer los datos de archivos .dat y .hea, los datos se organizaron en un arreglo. 
+Se obtuvo una señal fisiológica de la base de datos PhysioNet, esta señal corresponde al  estudio del músculo tibial anterior en tres grupos de pacientes: personas sanas, personas con neuropatías y personas con miopatías.
+Para extraer y procesar los datos, se utilizó la librería WFDB, que permite leer archivos en formato .dat y .hea. Finalmente, la información recopilada fue organizada en un arreglo numpy para su posterior análisis.
 //////////////////////////
 ```python
 import wfdb
@@ -22,11 +25,14 @@ arreglo = registro.p_signal #arreglo numpy
 datos = arreglo[:, 0] #columna 0
 
 ```
-
+![señal emg](https://github.com/user-attachments/assets/c857b35b-396c-46df-94f4-e76c9591570b)
 
 Una vez los datos se encuentran organizados en el arreglo "Datos", se pueden calcular los estadisticos descriptivos de la señal. Los estadisticos permiten describir y analizar el comportamiento de la señal.
 Estos valores fueron calculados de dos maneras diferentes, en primer lugar se programó la fómula y posteriormente se utilizaron funciones predefinidas de python.  
 
+### Media 
+Es útil para obtener una idea general del comportamiento central de la señal.
+Se calcula sumando todos los valores de la señal y luego dividiendo entre el número total de muestras "m"
 ``` python 
 #Media con código
 suma3 = 0
@@ -34,11 +40,15 @@ contador = 0
 i = 0
 while i < m:
     suma3 += datos[i]
+
     contador += 1
     i += 1
 media3=suma3/contador
 print("Media3:",media3)
 ```
+### Desviación estándar 
+Mide la dispersión o variabilidad de los valores de la señal con respecto a la media. 
+En primer lugar se calculó la varianza que es el promedio de los cuadrados de las diferencias entre cada valor de la señal y la media. Posteriormente se calcula la raiz cuadrada de la varianza, dando como resultado la desviación estándar.
 ``` python
 
 #Desviación estándar con código
@@ -55,6 +65,8 @@ print("Desviación estandar 3:",desv3)
 
 
 ```
+ ### Coeficiente de variación  
+Es una medida relativa de la dispersión que se calcula dividiendo la desviación estándar entre la media y multiplicando por 100 para obtener un porcentaje.
 ``` python 
 # Coeficiente de variación con código
 cv2 = (desv3/media3) * 100  
