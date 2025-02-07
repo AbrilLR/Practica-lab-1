@@ -1,4 +1,3 @@
-///////////////////////////////
 # Análisis estadístico de la señal 
 ## Descipción  
 Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
@@ -9,7 +8,7 @@ Se realizó un código en python con el fin de analizar una señal de electromio
 
 Se obtuvo una señal fisiológica de la base de datos PhysioNet, esta señal corresponde al  estudio del músculo tibial anterior en tres grupos de pacientes: personas sanas, personas con neuropatías y personas con miopatías.
 Para extraer y procesar los datos, se utilizó la librería WFDB, que permite leer archivos en formato .dat y .hea. Finalmente, la información recopilada fue organizada en un arreglo numpy para su posterior análisis.
-//////////////////////////
+
 ```python
 import wfdb
 import pandas as pd
