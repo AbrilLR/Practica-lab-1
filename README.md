@@ -167,7 +167,7 @@ Pyton 3.9.0 ó superior
 * wfdb
 * numpy
 * matplotlib
-* scipy
+* scipy.stats
 
 
 
