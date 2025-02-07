@@ -89,7 +89,10 @@ plt.show()
 
 ## Ruido Gaussiano 
 Este paso introduce ruido gaussiano en la señal EMG. El ruido gaussiano se utiliza comúnmente para simular interferencias o errores en los datos.
+ 
 
+
+- **Ruido de Artefacto:** Representa interferencias externas, como movimientos involuntarios o contracciones musculares. Se manifiesta en la señal como fluctuaciones aleatorias que no corresponden a la actividad eléctrica muscular real.
 
 ``` python
 
@@ -102,13 +105,16 @@ ruido_g1 = np.random.normal(media_r1, cv_r1, size=len(datos))
 ```
 ![r gaussiano](https://github.com/user-attachments/assets/d0134ade-cb80-44c6-9a2a-0d89130f4f65)
 
+![ruido g fuerte](https://github.com/user-attachments/assets/d7f667d8-867f-4614-ae33-48a1360411cf)
+
+
 np.random.normal: Genera ruido con distribución normal. Se simula un ruido débil (con bajo coeficiente de variación) y fuerte (con mayor coeficiente de variación) y se añade a la señal original.
 
 
 
 ## Ruido Impulso 
 En este paso, se introduce ruido impulso en la señal. Este tipo de ruido se presenta como picos o saltos repentinos en los valores de la señal.
-
+ Estos picos pueden tener amplitudes mucho mayores o menores que el resto de los datos, causando distorsiones abruptas o artefactos en la señal.  
 
 ``` python
 #Ruido impulso
@@ -121,11 +127,16 @@ datos4 = datos + ruido_i1
 
 ```
 ![ruido impulso](https://github.com/user-attachments/assets/f4622df2-88dd-41c5-92b0-4e53e20a3b3e)
+![ruid impulso alto](https://github.com/user-attachments/assets/a580606a-e9dc-46d1-8c08-08e7c25e1346)
 np.random.uniform: Genera valores aleatorios en un intervalo uniforme para simular los picos de impulso.
 
 ## Ruido  Artefacto 
-Se simula una interferencia de 50 Hz la cual suele provenir de la red electrica 
+El ruido de artefacto es una interferencia en la señal, causada por factores externos. Pueden generarse por movimientos involuntarios, actividad eléctrica de otros músculos cercanos o  interferencias de la red electrica la cual suele ser de 50 Hz.
+
+
 ![ruido por artefacto](https://github.com/user-attachments/assets/f3841831-4ad3-4761-9129-549540f10836)
+![ruido por art fuerte](https://github.com/user-attachments/assets/a2e21e30-0492-4dc5-8750-37e31f7cb57b)
+
 
 ## Relación señal ruido (SNR)
 La relación señal-ruido (SNR) es una medida importante para evaluar la calidad de la señal. SNR es la proporción entre la potencia de la señal útil y la potencia del ruido no deseado.
@@ -138,10 +149,14 @@ snr2 =(10 * np.log10(np.var(datos) / np.var(ruido_g2)))
 print("SNR1:",snr1)
 print("SNR2:",snr2)
 ```
+
+### Requisitos 
+Pyton 3.9.0 ó superior
 ### Librerias
 * wfdb
 * numpy
 * matplotlib
 * scipy
+
 
 
