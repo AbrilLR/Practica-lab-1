@@ -3,8 +3,6 @@
 ## Descipción  
 Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
 
-Hola :)
-
 ### Señal y sus variables estadisticas 
 
 Se extrajo una señal fisiologica en la base de datos physionet, es necesario contar la libreria WFDB debido a que esta permite extraer los datos de archivos .dat y .hea, los datos se organizaron en un arreglo. 
@@ -92,9 +90,8 @@ plt.show()
 
 El histograma de la señal muestra la distribución de los valores de la actividad eléctrica de los músculos a lo largo del tiempo. Las alteraciones en la amplitud representan los momentos en los que el musculo se relaja o se contrae. 
 
-
 ## Ruido Gaussiano 
-Este paso introduce ruido gaussiano en la señal EMG. El ruido gaussiano se utiliza comúnmente para simular interferencias o errores en los datos.
+Este paso introduce ruido gaussiano en la señal EMG. El ruido gaussiano se utiliza comúnmente para simular interferencias.
 
 ``` python
 
