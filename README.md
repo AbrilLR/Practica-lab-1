@@ -63,10 +63,10 @@ cv2 = (desv3/media3) * 100
 print("Coeficiente de variación 2:",cv2,"%")
 
 ```
-## Histogramas 
+## Histograma
 El histograma permite visualizar la distribucion de la señal. Este gráfico muestra la frecuencia con la que ocurren los valores de la señal dentro de diferentes intervalos.
-La función  np.histogram de la libreria NumPy se permite  calcular el histograma de un conjunto de datos. Devuelve la frecuencia de los datos numéricos en intervalos de rangos agrupados.
-Además, Genera la función de densidad de probabilidad de una distribución normal para comparar la señal con una distribución ideal.
+La función  np.histogram de la libreria NumPy  permite  calcular el histograma de un conjunto de datos. Devuelve la frecuencia de los datos numéricos en intervalos de rangos agrupados.
+Además, con ayuda de la función norm.pdf de la libreria scipy.stats se genera la función de densidad de probabilidad de una distribución normal para comparar la señal con una distribución ideal.
 
 
 ``` python
