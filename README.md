@@ -1,7 +1,7 @@
 # Análisis estadístico de la señal 
 ## Descipción  
 Se realizó un código en python con el fin de analizar una señal de electromiografía obtenida de la base de datos Physionet. Extrayendo información estadística, generando histogramas y simulando diferentes tipos de ruido para evaluar su impacto en la señal.
-hola abril, eres una boba
+
 
 
 ### Señal y sus variables estadisticas 
